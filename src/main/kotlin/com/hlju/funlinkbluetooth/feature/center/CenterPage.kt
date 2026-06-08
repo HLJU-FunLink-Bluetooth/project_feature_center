@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -58,7 +59,8 @@ fun CenterPage(
     plugins: List<GamePlugin>,
     nearbyAppLaunchContext: NearbyAppLaunchContext,
     bottomInset: Dp,
-    onPluginClick: (GamePlugin) -> Unit
+    onPluginClick: (GamePlugin) -> Unit,
+    topBarActions: @Composable RowScope.() -> Unit = {}
 ) {
     var query by rememberSaveable { mutableStateOf("") }
     var searchExpanded by rememberSaveable { mutableStateOf(false) }
@@ -82,6 +84,7 @@ fun CenterPage(
     PageScaffold(
         title = "游戏中心",
         scrollBehavior = scrollBehavior,
+        actions = topBarActions,
     ) { innerPadding, contentModifier ->
         LazyColumn(
             modifier = contentModifier
