@@ -20,15 +20,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import com.hlju.funlinkbluetooth.core.designsystem.navigation.PageScaffold
-import com.hlju.funlinkbluetooth.core.designsystem.token.Corners
 import com.hlju.funlinkbluetooth.core.designsystem.token.Spacing
 import com.hlju.funlinkbluetooth.core.designsystem.token.adaptivePageHorizontalPadding
+import com.hlju.funlinkbluetooth.core.designsystem.token.clipPageShape
 import com.hlju.funlinkbluetooth.core.designsystem.widget.StateMessageCard
 import com.hlju.funlinkbluetooth.core.designsystem.widget.StatusBadge
 import com.hlju.funlinkbluetooth.core.designsystem.widget.SurfaceTone
@@ -154,7 +153,7 @@ private fun PluginRow(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(Corners.PageShape),
+            .clipPageShape(),
         showIndication = availability.canOpen,
         onClick = if (availability.canOpen) onClick else null
     ) {
